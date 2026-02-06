@@ -27,6 +27,21 @@ Mountain View Retreat
 
 ## Installation
 
+### Quick run (no install)
+
+```bash
+uvx airbnb-search "Steamboat Springs, CO" --checkin 2026-02-27 --checkout 2026-03-01
+```
+
+### Install as CLI tool
+
+```bash
+uv tool install airbnb-search
+airbnb-search "Steamboat Springs, CO" --checkin 2026-02-27 --checkout 2026-03-01
+```
+
+### Add to a project
+
 ```bash
 uv add airbnb-search
 ```
