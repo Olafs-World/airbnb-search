@@ -40,6 +40,12 @@ uv tool install airbnb-search
 airbnb-search "Steamboat Springs, CO" --checkin 2026-02-27 --checkout 2026-03-01
 ```
 
+### Install as OpenClaw skill
+
+```bash
+clawhub install airbnb-search
+```
+
 ### Add to a project
 
 ```bash
@@ -186,6 +192,12 @@ This tool uses Airbnb's internal GraphQL API (the same one their website uses). 
 - ✅ Fast and reliable
 - ✅ Gets the same data you'd see on airbnb.com
 - ⚠️ May break if Airbnb changes their API (PRs welcome!)
+
+## Links
+
+- [PyPI](https://pypi.org/project/airbnb-search/)
+- [GitHub](https://github.com/Olafs-World/airbnb-search)
+- [ClawHub Skill](https://clawhub.com/skills/airbnb-search)
 
 ## License
 
