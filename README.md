@@ -28,6 +28,12 @@ Mountain View Retreat
 ## Installation
 
 ```bash
+uv add airbnb-search
+```
+
+Or with pip:
+
+```bash
 pip install airbnb-search
 ```
 
@@ -149,7 +155,7 @@ Parse raw API response into clean listing data.
 # Clone and install dev dependencies
 git clone https://github.com/Olafs-World/airbnb-search.git
 cd airbnb-search
-pip install -e ".[dev]"
+uv sync # or: pip install -e ".[dev]"
 
 # Run tests
 pytest tests/ -v
