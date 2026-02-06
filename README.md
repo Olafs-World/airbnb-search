@@ -27,6 +27,12 @@ Mountain View Retreat
 
 ## Installation
 
+### One-liner
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Olafs-World/airbnb-search/main/install.sh | bash
+```
+
 ### Quick run (no install)
 
 ```bash
