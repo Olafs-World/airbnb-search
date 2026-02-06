@@ -2,7 +2,7 @@
 
 import json
 import requests
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, Any
 
 API_KEY = 'd306zoyjsyarp7ifhu67rjxn52tv0t20'
 API_URL = 'https://www.airbnb.com/api/v3/ExploreSearch'
@@ -114,7 +114,7 @@ def parse_listings(data: Dict[str, Any]) -> Dict[str, Any]:
             if total_price:
                 try:
                     price_num = int(''.join(c for c in total_price if c.isdigit()))
-                except:
+                except ValueError:
                     pass
             
             listings.append({

@@ -19,7 +19,7 @@ def print_listings(result: dict, format: str = 'table'):
     print("=" * 90)
     
     sorted_listings = sorted(
-        [l for l in listings if l['total_price_num']],
+        [listing for listing in listings if listing['total_price_num']],
         key=lambda x: x['total_price_num']
     )
     
