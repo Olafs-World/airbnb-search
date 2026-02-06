@@ -37,7 +37,12 @@ def print_listings(result: dict, format: str = 'table'):
         print()
 
 
-def main():
+def main(argv=None):
+    """Main entry point for the CLI.
+    
+    Args:
+        argv: Command line arguments. If None, uses sys.argv.
+    """
     parser = argparse.ArgumentParser(
         description='Search Airbnb listings from the command line',
         prog='airbnb-search'
@@ -49,10 +54,15 @@ def main():
     parser.add_argument('--max-price', type=int, help='Maximum price')
     parser.add_argument('--min-bedrooms', type=int, help='Minimum bedrooms')
     parser.add_argument('--limit', type=int, default=50, help='Max results (default: 50)')
+    parser.add_argument('--json', action='store_true', help='Output as JSON')
     parser.add_argument('--format', '-f', choices=['table', 'json'], default='table',
                         help='Output format (default: table)')
     
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+    
+    # --json is shorthand for --format json
+    if args.json:
+        args.format = 'json'
     
     try:
         data = search_airbnb(
