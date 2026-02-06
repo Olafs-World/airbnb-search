@@ -1,4 +1,4 @@
-![airbnb-search banner](banner.png)
+![airbnb-search banner](https://raw.githubusercontent.com/Olafs-World/airbnb-search/main/banner.png)
 
 # airbnb-search 🏠
 
