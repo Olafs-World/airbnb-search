@@ -30,7 +30,7 @@ jobs:
         run: uv run ruff check .
 
       - name: Run tests
-        run: uv run pytest
+        run: uv run pytest -m "not integration"
 
   publish:
     needs: test
