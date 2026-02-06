@@ -1,3 +1,5 @@
+![airbnb-search banner](banner.png)
+
 # airbnb-search 🏠
 
 [![CI](https://github.com/Olafs-World/airbnb-search/actions/workflows/ci.yml/badge.svg)](https://github.com/Olafs-World/airbnb-search/actions/workflows/ci.yml)
