@@ -1,70 +1,81 @@
 ---
 name: airbnb-search
-description: Search Airbnb listings from the command line. Use when you need to find vacation rentals, check prices, or help with travel planning. Supports location search, date filtering, price limits, guest counts, and room types. No API key required.
+description: Search Airbnb listings with prices, ratings, and direct links. No API key required.
+homepage: https://github.com/Olafs-World/airbnb-search
+metadata:
+  {
+    "openclaw":
+      {
+        "emoji": "🏠",
+        "requires": { "bins": ["uvx"] },
+        "install":
+          [
+            {
+              "id": "uv",
+              "kind": "pip",
+              "package": "uv",
+              "bins": ["uvx"],
+              "label": "Install uv (for uvx)",
+            },
+          ],
+      },
+  }
 ---
 
 # Airbnb Search
 
-Search Airbnb listings via CLI. No browser automation, no API key.
+Search Airbnb listings from the command line. Returns prices, ratings, and direct booking links.
 
-## Installation
-
-```bash
-uvx airbnb-search "Denver, CO"  # one-off
-uv tool install airbnb-search   # persistent
-```
-
-## Usage
+## Quick Start
 
 ```bash
-# Basic search
-airbnb-search "Steamboat Springs, CO"
+# one-off search (no install needed)
+uvx airbnb-search "Steamboat Springs, CO" --checkin 2025-03-01 --checkout 2025-03-03
 
-# With dates and filters
-airbnb-search "Winter Park, CO" \
-  --checkin 2026-03-15 \
-  --checkout 2026-03-17 \
-  --max-price 400 \
-  --min-bedrooms 2
-
-# JSON output for parsing
-airbnb-search "Aspen, CO" --format json
+# or install globally
+uv tool install airbnb-search
+airbnb-search "Denver, CO" --checkin 2025-06-01 --checkout 2025-06-05
 ```
 
 ## Options
 
-| Flag | Description |
-|------|-------------|
-| `--checkin` | Check-in date (YYYY-MM-DD) |
-| `--checkout` | Check-out date (YYYY-MM-DD) |
-| `--max-price` | Maximum total price |
-| `--min-price` | Minimum total price |
-| `--min-bedrooms` | Minimum bedrooms |
-| `--min-bathrooms` | Minimum bathrooms |
-| `--guests` | Number of guests |
-| `--room-type` | entire_home, private_room, shared_room |
-| `--superhost` | Only superhosts |
-| `--format` | Output format: pretty (default), json, csv |
-| `--limit` | Max results to return |
-
-## Python API
-
-```python
-from airbnb_search import search_airbnb
-
-results = search_airbnb(
-    location="Denver, CO",
-    checkin="2026-03-01",
-    checkout="2026-03-03",
-    max_price=300
-)
-
-for listing in results["listings"]:
-    print(f"{listing['name']}: ${listing['total_price']}")
-    print(f"  {listing['url']}")
 ```
+--checkin DATE       Check-in date (YYYY-MM-DD)
+--checkout DATE      Check-out date (YYYY-MM-DD)
+--adults N           Number of adults (default: 2)
+--children N         Number of children (default: 0)
+--min-price N        Minimum price per night
+--max-price N        Maximum price per night
+--superhost          Only show superhosts
+--limit N            Max results (default: 20)
+--output FORMAT      json or text (default: text)
+```
+
+## Example Output
+
+```
+🏠 Cozy Mountain Cabin
+   ⭐ 4.92 (127 reviews) · Superhost
+   💰 $185/night · $407 total
+   🔗 https://www.airbnb.com/rooms/12345678
+```
+
+## JSON Output
+
+```bash
+airbnb-search "Aspen, CO" --checkin 2025-02-01 --checkout 2025-02-03 --output json
+```
+
+Returns structured data with `name`, `price_per_night`, `total_price`, `rating`, `reviews`, `url`, `superhost`, etc.
+
+## Notes
+
+- Prices include cleaning fees in the total
+- Dates are required for accurate pricing
+- No API key needed — scrapes public search results
+- Be respectful of rate limits
 
 ## Links
 
-- PyPI: https://pypi.org/project/airbnb-search/
-- GitHub: https://github.com/Olafs-World/airbnb-search
+- [PyPI](https://pypi.org/project/airbnb-search/)
+- [GitHub](https://github.com/Olafs-World/airbnb-search)
