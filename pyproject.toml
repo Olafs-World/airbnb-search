@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "airbnb-search"
-version = "0.1.1"
+version = "0.1.2"
 description = "Search Airbnb listings from the command line"
 readme = "README.md"
 license = {text = "MIT"}
@@ -34,6 +34,7 @@ airbnb-search = "airbnb_search.cli:main"
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
+    "ruff>=0.4.0",
 ]
 
 [project.urls]
