@@ -48,10 +48,13 @@ uv tool install airbnb-search
 airbnb-search "Steamboat Springs, CO" --checkin 2026-02-27 --checkout 2026-03-01
 ```
 
-### Install as OpenClaw skill
+### As an Agent Skill
 
 ```bash
-clawhub install airbnb-search
+npx skills add olafs-world/airbnb-search
+
+# or with OpenClaw
+clawhub install olafs-world/airbnb-search
 ```
 
 ### Add to a project
