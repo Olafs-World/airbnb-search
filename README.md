@@ -7,7 +7,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Search Airbnb listings from the command line.** No API key required. No browser automation. Just fast, reliable results.
+**Search Airbnb listings from the command line.** No user API key required (uses Airbnb's public frontend API key). No browser automation. Just fast, reliable results.
 
 ```bash
 $ airbnb-search "Steamboat Springs, CO" --checkin 2026-02-27 --checkout 2026-03-01 --max-price 500
@@ -28,12 +28,6 @@ Mountain View Retreat
 ```
 
 ## Installation
-
-### One-liner
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Olafs-World/airbnb-search/main/install.sh | bash
-```
 
 ### Quick run (no install)
 
@@ -122,7 +116,7 @@ for listing in result['listings'][:5]:
 | ⭐ **Full Details** | Ratings, reviews, superhost status, amenities |
 | 🔗 **Direct Links** | Click straight through to Airbnb listings |
 | 📊 **Flexible Output** | Human-readable tables or JSON for scripting |
-| 🚀 **No API Key** | Works out of the box, no setup required |
+| 🚀 **No Setup** | Uses Airbnb's public frontend API key — no user key needed |
 | ⚡ **Fast** | Direct API calls, no browser overhead |
 
 ## CLI Reference

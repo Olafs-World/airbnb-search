@@ -1,6 +1,6 @@
 ---
 name: airbnb-search
-description: Search Airbnb listings with prices, ratings, and direct links. No API key required. Use when searching for Airbnb stays, vacation rentals, or accommodation pricing.
+description: Search Airbnb listings with prices, ratings, and direct links. No user API key required (uses Airbnb's public frontend API key). Use when searching for Airbnb stays, vacation rentals, or accommodation pricing.
 license: MIT
 metadata:
   author: Olafs-World
@@ -57,7 +57,8 @@ Cozy Mountain Cabin 🏆
 
 - Dates are required for accurate pricing
 - Prices include cleaning fees in the total
-- No API key needed — uses public Airbnb search API
+- No user API key needed — uses Airbnb's public frontend API key (hardcoded, same key used by airbnb.com in the browser)
+- May break if Airbnb changes their internal GraphQL API
 - Be respectful of rate limits
 
 ## Links
