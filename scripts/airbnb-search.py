@@ -148,7 +148,7 @@ def print_listings(result, fmt="table"):
     print("=" * 90)
 
     sorted_listings = sorted(
-        [l for l in listings if l["total_price_num"]],
+        [item for item in listings if item["total_price_num"]],
         key=lambda x: x["total_price_num"],
     )
 
