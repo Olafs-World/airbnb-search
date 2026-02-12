@@ -1,78 +1,63 @@
 ---
 name: airbnb-search
-description: Search Airbnb listings with prices, ratings, and direct links. No API key required.
-homepage: https://github.com/Olafs-World/airbnb-search
+description: Search Airbnb listings with prices, ratings, and direct links. No API key required. Use when searching for Airbnb stays, vacation rentals, or accommodation pricing.
+license: MIT
 metadata:
-  {
-    "openclaw":
-      {
-        "emoji": "🏠",
-        "requires": { "bins": ["uvx"] },
-        "install":
-          [
-            {
-              "id": "uv",
-              "kind": "pip",
-              "package": "uv",
-              "bins": ["uvx"],
-              "label": "Install uv (for uvx)",
-            },
-          ],
-      },
-  }
+  author: Olafs-World
+  version: "0.1.3"
 ---
 
 # Airbnb Search
 
 Search Airbnb listings from the command line. Returns prices, ratings, and direct booking links.
 
+## Requirements
+
+- Python 3.8+
+- `requests` library (auto-installed via `uv run --with`)
+
 ## Quick Start
 
 ```bash
-# one-off search (no install needed)
-uvx airbnb-search "Steamboat Springs, CO" --checkin 2025-03-01 --checkout 2025-03-03
+# Run directly (no install needed)
+uv run --with requests scripts/airbnb-search.py "Steamboat Springs, CO" --checkin 2025-03-01 --checkout 2025-03-03
 
-# or install globally
-uv tool install airbnb-search
-airbnb-search "Denver, CO" --checkin 2025-06-01 --checkout 2025-06-05
+# JSON output
+uv run --with requests scripts/airbnb-search.py "Denver, CO" --checkin 2025-06-01 --checkout 2025-06-05 --json
 ```
 
 ## Options
 
 ```
---checkin DATE       Check-in date (YYYY-MM-DD)
---checkout DATE      Check-out date (YYYY-MM-DD)
---adults N           Number of adults (default: 2)
---children N         Number of children (default: 0)
---min-price N        Minimum price per night
---max-price N        Maximum price per night
---superhost          Only show superhosts
---limit N            Max results (default: 20)
---output FORMAT      json or text (default: text)
+query                Search location (e.g., "Steamboat Springs, CO")
+--checkin, -i DATE   Check-in date (YYYY-MM-DD)
+--checkout, -o DATE  Check-out date (YYYY-MM-DD)
+--min-price N        Minimum price filter
+--max-price N        Maximum price filter
+--min-bedrooms N     Minimum bedrooms filter
+--limit N            Max results (default: 50)
+--json               Output as JSON
+--format FORMAT      table or json (default: table)
 ```
 
 ## Example Output
 
 ```
-🏠 Cozy Mountain Cabin
-   ⭐ 4.92 (127 reviews) · Superhost
-   💰 $185/night · $407 total
-   🔗 https://www.airbnb.com/rooms/12345678
+📍 Steamboat Springs, CO
+📊 Found 300+ total listings
+
+==========================================================================================
+Cozy Mountain Cabin 🏆
+  2BR/1BA | ⭐4.92 | 127 reviews
+  💰 $407 total
+  🔗 https://airbnb.com/rooms/12345678
 ```
-
-## JSON Output
-
-```bash
-airbnb-search "Aspen, CO" --checkin 2025-02-01 --checkout 2025-02-03 --output json
-```
-
-Returns structured data with `name`, `price_per_night`, `total_price`, `rating`, `reviews`, `url`, `superhost`, etc.
 
 ## Notes
 
-- Prices include cleaning fees in the total
 - Dates are required for accurate pricing
-- No API key needed — scrapes public search results
+- Prices include cleaning fees in the total
+- No API key needed — uses public Airbnb search API
 - Be respectful of rate limits
 
 ## Links
